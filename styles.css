@@ -1,0 +1,451 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: white;
+  color: #000;
+}
+
+.app {
+  max-width: 430px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.space-x-1 > * + * {
+  margin-left: 0.25rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-gray-400 {
+  color: #9ca3af;
+}
+
+.text-gray-500 {
+  color: #6b7280;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Status Bar */
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: white;
+}
+
+.battery {
+  width: 2.5rem;
+  height: 1rem;
+  border: 1px solid black;
+  border-radius: 0.125rem;
+  position: relative;
+}
+
+.battery-level {
+  position: absolute;
+  right: 0.125rem;
+  top: 0.125rem;
+  bottom: 0.125rem;
+  width: 1.5rem;
+  background-color: black;
+  border-radius: 0.125rem;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 0.5rem 1rem 4rem;
+  overflow-y: auto;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.icon-button {
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.notification-button {
+  position: relative;
+}
+
+.notification-dot {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #f97316;
+  border-radius: 50%;
+}
+
+/* Investing Header */
+.investing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.page-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+}
+
+.gold-badge {
+  background-color: #fde68a;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Portfolio Value */
+.portfolio-value {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+/* Gain/Loss Indicator */
+.gain-indicator {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.gain-value {
+  display: flex;
+  align-items: center;
+  color: #22c55e;
+}
+
+.up-arrow {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.25rem;
+}
+
+.time-period {
+  margin-left: 0.5rem;
+  color: #1f2937;
+}
+
+/* Chart */
+.chart-container {
+  margin-bottom: 1rem;
+  height: 16rem;
+}
+
+/* Time Selector */
+.time-selector {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 1rem;
+}
+
+.time-options {
+  display: flex;
+  gap: 1rem;
+}
+
+.time-option {
+  padding: 0.5rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+.time-option.selected {
+  background-color: #22c55e;
+  color: white;
+}
+
+.settings-button {
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+/* Buying Power */
+.buying-power {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Deposit Card */
+.deposit-card {
+  position: relative;
+  margin-top: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.close-button {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.deposit-card-content {
+  display: flex;
+  align-items: flex-start;
+}
+
+.deposit-icon {
+  width: 6rem;
+  height: 6rem;
+  background-color: #22c55e;
+  position: relative;
+  border-radius: 0.125rem;
+  overflow: hidden;
+  margin-right: 1rem;
+}
+
+.deposit-icon::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1rem;
+  background-color: #166534;
+}
+
+.deposit-icon::before {
+  content: "";
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  width: 66.666%;
+  height: 3rem;
+  background-color: #166534;
+}
+
+.deposit-icon-dot {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.deposit-info {
+  flex: 1;
+}
+
+.deposit-header {
+  display: flex;
+  align-items: center;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.deposit-message {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.deposit-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deposit-action {
+  color: #22c55e;
+  font-weight: 500;
+  border-bottom: 2px solid #22c55e;
+  padding-bottom: 0.25rem;
+}
+
+.deposit-step {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+/* Holdings Section */
+.holdings-section {
+  margin-top: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+.holding-category {
+  margin-bottom: 2rem;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.category-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.holdings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.holding-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.holding-info {
+  flex: 1;
+}
+
+.holding-symbol {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.holding-quantity {
+  color: #6b7280;
+}
+
+.mini-chart-container {
+  width: 6rem;
+  height: 3rem;
+}
+
+.holding-price {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  text-align: right;
+}
+
+.holding-price.positive {
+  background-color: #22c55e;
+  color: white;
+}
+
+.holding-price.negative {
+  background-color: #f97316;
+  color: white;
+}
+
+/* Bottom Navigation */
+.bottom-navigation {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-top: 1px solid #e5e7eb;
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+.nav-button {
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.bottom-navigation {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 4rem;
+}
+
+.home-indicator {
+  height: 0.25rem;
+  width: 33.333%;
+  margin: 0 auto;
+  background-color: black;
+  border-radius: 9999px;
+  margin-bottom: 0.25rem;
+}
+
+.active {
+  color: black;
+}
