@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robinhood Clone</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <div class="font-semibold">3:46</div>
+      <div class="flex items-center space-x-1">
+        <div class="text-xs">LTE</div>
+        <div class="battery">
+          <div class="battery-level"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header with Search and Notifications -->
+      <div class="header">
+        <button class="icon-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        </button>
+        <button class="icon-button notification-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
+          <span class="notification-dot"></span>
+        </button>
+      </div>
+
+      <!-- Investing Header -->
+      <div class="investing-header">
+        <div class="flex items-center">
+          <h1 class="page-title">Investing</h1>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon ml-2"><path d="m6 9 6 6 6-6"></path></svg>
+        </div>
+        <div class="gold-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon mr-2"><path d="M12 8l4 4H8l4-4z"></path><path d="M12 16v4"></path><path d="M8 12H4"></path><path d="M20 12h-4"></path></svg>
+          <span class="font-medium text-sm">Gold Month</span>
+        </div>
+      </div>
+
+      <!-- Portfolio Value -->
+      <h2 class="portfolio-value">$1,571.89</h2>
+
+      <!-- Gain/Loss Indicator -->
+      <div class="gain-indicator">
+        <div class="gain-value">
+          <svg class="up-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3L20 13H4L12 3Z" fill="currentColor" />
+          </svg>
+          <span class="font-bold">$63.44 (4.21%)</span>
+        </div>
+        <span class="time-period">Past week</span>
+      </div>
+
+      <!-- Chart -->
+      <div class="chart-container">
+        <canvas id="stockChart"></canvas>
+      </div>
+
+      <!-- Time Selector -->
+      <div class="time-selector">
+        <div class="time-options">
+          <button class="time-option">LIVE</button>
+          <button class="time-option">1D</button>
+          <button class="time-option selected">1W</button>
+          <button class="time-option">1M</button>
+          <button class="time-option">3M</button>
+          <button class="time-option">YTD</button>
+          <button class="time-option">1Y</button>
+        </div>
+        <button class="settings-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+        </button>
+      </div>
+
+      <!-- Buying Power -->
+      <div class="buying-power">
+        <span class="text-lg">Buying power</span>
+        <div class="flex items-center">
+          <span class="mr-2">$0.00</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon text-gray-400"><path d="m9 18 6-6-6-6"></path></svg>
+        </div>
+      </div>
+
+      <!-- Deposit Card -->
+      <div class="deposit-card" id="depositCard">
+        <button class="close-button" id="closeDepositCard">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon text-gray-500"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+        </button>
+
+        <div class="deposit-card-content">
+          <div class="deposit-icon">
+            <div class="deposit-icon-dot"></div>
+          </div>
+
+          <div class="deposit-info">
+            <div class="deposit-header">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon mr-2"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg>
+              <span>Deposit Funds</span>
+            </div>
+
+            <p class="deposit-message">Congrats on getting ZNGA! Deposit funds to buy more stocks.</p>
+
+            <div class="deposit-footer">
+              <div class="deposit-action">Deposit Funds</div>
+              <div class="deposit-step">1/8</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Holdings Section -->
+      <div class="holdings-section">
+        <!-- Crypto Section -->
+        <div class="holding-category">
+          <div class="category-header">
+            <h3 class="category-title">Crypto</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon text-gray-400"><path d="m9 18 6-6-6-6"></path></svg>
+          </div>
+          
+          <div class="holdings-list">
+            <!-- XRP -->
+            <div class="holding-item">
+              <div class="holding-info">
+                <div class="holding-symbol">XRP</div>
+                <div class="holding-quantity">210</div>
+              </div>
+              
+              <div class="mini-chart-container">
+                <canvas class="mini-chart" data-is-positive="true"></canvas>
+              </div>
+              
+              <div class="holding-price positive">
+                $2.47
+              </div>
+            </div>
+            
+            <!-- SHIB -->
+            <div class="holding-item">
+              <div class="holding-info">
+                <div class="holding-symbol">SHIB</div>
+                <div class="holding-quantity">37,261,372</div>
+              </div>
+              
+              <div class="mini-chart-container">
+                <canvas class="mini-chart" data-is-positive="true"></canvas>
+              </div>
+              
+              <div class="holding-price positive">
+                $0.00001364
+              </div>
+            </div>
+            
+            <!-- XLM -->
+            <div class="holding-item">
+              <div class="holding-info">
+                <div class="holding-symbol">XLM</div>
+                <div class="holding-quantity">1,149.04</div>
+              </div>
+              
+              <div class="mini-chart-container">
+                <canvas class="mini-chart" data-is-positive="true"></canvas>
+              </div>
+              
+              <div class="holding-price positive">
+                $0.291101
+              </div>
+            </div>
+            
+            <!-- PEPE -->
+            <div class="holding-item">
+              <div class="holding-info">
+                <div class="holding-symbol">PEPE</div>
+                <div class="holding-quantity">25,050,677</div>
+              </div>
+              
+              <div class="mini-chart-container">
+                <canvas class="mini-chart" data-is-positive="true"></canvas>
+              </div>
+              
+              <div class="holding-price positive">
+                $0.00000806
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Stocks & ETFs Section -->
+        <div class="holding-category">
+          <div class="category-header">
+            <h3 class="category-title">Stocks & ETFs</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon text-gray-400"><path d="m9 18 6-6-6-6"></path></svg>
+          </div>
+          
+          <div class="holdings-list">
+            <!-- TTWO -->
+            <div class="holding-item">
+              <div class="holding-info">
+                <div class="holding-symbol">TTWO</div>
+                <div class="holding-quantity">0.040600 shares</div>
+              </div>
+              
+              <div class="mini-chart-container">
+                <canvas class="mini-chart" data-is-positive="true"></canvas>
+              </div>
+              
+              <div class="holding-price positive">
+                $214.00
+              </div>
+            </div>
+            
+            <!-- PET -->
+            <div class="holding-item">
+              <div class="holding-info">
+                <div class="holding-symbol">PET</div>
+                <div class="holding-quantity">18.15 shares</div>
+              </div>
+              
+              <div class="mini-chart-container">
+                <canvas class="mini-chart" data-is-positive="false"></canvas>
+              </div>
+              
+              <div class="holding-price negative">
+                $0.20
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Prediction Markets Section -->
+        <div class="holding-category">
+          <div class="category-header">
+            <h3 class="category-title">Prediction markets</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon text-gray-400"><path d="m9 18 6-6-6-6"></path></svg>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-navigation">
+      <button class="nav-button active">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+      </button>
+      <button class="nav-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon text-gray-400"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+      </button>
+      <button class="nav-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon text-gray-400"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </button>
+      <button class="nav-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon text-gray-400"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><line x1="12" y1="22" x2="12" y2="12"></line></svg>
+      </button>
+      <button class="nav-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon text-gray-400"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      </button>
+    </div>
+
+    <!-- Home indicator line for iOS -->
+    <div class="home-indicator"></div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
